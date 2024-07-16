@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Leaflet Map with Route Example</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+  <style>
+    /* Resetting and protecting Leaflet's map attribution control styles */
+    .leaflet-control-attribution,
+    .leaflet-control-attribution a {
+      font-size: 12px !important;
+      /* Ensuring font size remains consistent */
+      color: #666 !important;
+      /* Standardizing color */
+      background: transparent !important;
+      /* Ensuring the background remains transparent */
+      box-shadow: none !important;
+      /* Ensuring no box shadow is applied */
+      padding: 5px 10px !important;
+      /* Ensuring padding remains consistent */
+      text-decoration: none !important;
+      /* No underline or other text decorations */
+    }
+
+    /* Ensuring links within the attribution do not change on hover */
+    .leaflet-control-attribution a:hover {
+      color: #666 !important;
+      /* Same color on hover */
+      background: transparent !important;
+      /* No background change on hover */
+      text-decoration: none !important;
+      /* No underline on hover */
+    }
+
+
+    body,
+    html {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      /* Light grey background */
+    }
+
+    #map {
+      height: 500px;
+      width: 80%;
+      /* Responsive width */
+      margin: 20px auto;
+      /* Centering the map */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      /* Adding shadow for depth */
+      border-radius: 10px;
+      /* Rounded corners */
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      /* Dark grey color for text */
+      margin-top: 20px;
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+      background-color: #4CAF50;
+      /* Green background */
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin: 20px auto;
+      text-align: center;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    a:hover {
+      background-color: #367c39;
+      /* Darker green on hover */
+      transform: scale(1.05);
+      /* Slight increase in size on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="parkinglot">Parking</h1>
+  <div id="map"></div>
+  <a href="parking.html" style="width:200px;">Back to parking selection</a>
+  <script>
+    function getRandomLocation() {
+      const minLat = 9.301003394271524;
+      const maxLat = 9.327004071044245;
+      const minLng = 123.2940852710475;
+      const maxLng = 123.30626126093144;
+
+      const lat = Math.random() * (maxLat - minLat) + minLat;
+      const lng = Math.random() * (maxLng - minLng) + minLng;
+
+      return [lat, lng]; // Return an array of coordinates [latitude, longitude]
+    }
+    const destination = [9.3130577610227, 123.30702185253126]; //Location for End
+    const location1 = getRandomLocation();
+    const map = L.map('map').setView([12.5, 122.5], 30); // Centered view for both locations
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Markers for both locations
+    L.marker(destination).addTo(map).bindPopup('Destination');
+    L.marker(location1).addTo(map).bindPopup('Current Location');
+
+    // Calculate and display route
+    L.Routing.control({
+      waypoints: [
+        L.latLng(location1),
+        L.latLng(destination)
+      ]
+    }).addTo(map);
+
+    const retrievedLot = JSON.parse(sessionStorage.getItem('selectedlot'));
+    document.getElementById("parkinglot").innerHTML = retrievedLot;
+  </script>
+</body>
+
+</html>

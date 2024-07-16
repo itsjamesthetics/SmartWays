@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartWays - Header</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body.overlay-active {
+            overflow: hidden;
+            /* Prevent scrolling when the sub-menu is open */
+        }
+
+        body.overlay-active::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        header {
+            margin-bottom: 200px;
+            background-color: #fff;
+            color: #4CAF50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            height: 120px;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: #4CAF50;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo img {
+            margin-left: 120px;
+            width: 250px;
+            height: 250px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .navigation {
+            display: flex;
+            margin-right: 100px;
+            align-items: center;
+            gap: 150px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .navigation a:hover {
+            color: #4CAF50;
+        }
+
+        .user-logo {
+            padding-right: 150px;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .user-logo img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .user-logo:hover {
+            transform: scale(1.1);
+        }
+
+        .sub-menu-wrap {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            right: 0;
+            top: 80%;
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1001;
+            width: 250px;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .sub-menu-wrap.open-menu {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sub-menu-wrap:not(.open-menu) {
+            transform: translateY(-10px);
+        }
+
+        .sub-menu {
+            padding: 10px 0;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .sub-menu-link {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .sub-menu-link img {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        .sub-menu-link:hover {
+            background-color: #575757;
+            color: #fff;
+        }
+
+        .sub-menu-link span {
+            margin-left: auto;
+            color: #bbb;
+        }
+
+        main {
+            padding-top: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="logo">
+            <img src="assets/smartwaysre.png" alt="Duolingo logo">
+        </div>
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="team.html">Team</a>
+        </nav>
+        <div class="user-logo" id="user-logo">
+            <img src="assets/user.png" alt="User logo">
+        </div>
+    </header>
+
+    <!--SUB MENU-->
+    <div class="sub-menu-wrap" id="subMenu">
+        <div class="sub-menu">
+            <div class="user-info">
+                <img src="assets/user.png" alt="User profile">
+                <h2 style="color:white" id="Username">James Ald</h2>
+            </div>
+            <hr>
+            <a href="signin.html" class="sub-menu-link">
+                <img src="assets/profile.png" alt="Profile">
+                <p>Edit Profile</p>
+                <span>&gt;</span>
+            </a>
+            <a href="#" class="sub-menu-link">
+                <img src="assets/settings.png" alt="Settings">
+                <p>Settings</p>
+                <span>&gt;</span>
+            </a>
+            <a href="logout.html" class="sub-menu-link">
+                <img src="assets/logout.png" alt="Logout">
+                <p>Logout</p>
+                <span>&gt;</span>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

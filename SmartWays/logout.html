@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Logging Out</title>
+        <style>
+            body, html {
+                height: 100%;
+                margin: 0;
+                font-family: 'Arial', sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #f4f4f4;
+                color: #333;
+            }
+
+            .logout-message {
+                font-size: 24px;
+                padding: 20px;
+                border-radius: 10px;
+                background: white;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+
+            .spinner {
+                border: 6px solid #f3f3f3;
+                border-top: 6px solid #3498db;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                animation: spin 1s linear infinite;
+            }
+        </style>
+        <script src="scripts/logout.js" defer type="module"> </script>
+    </head>
+
+    <body>
+        <div class="logout-message">
+            <div class="spinner"></div>
+            Logging Out...
+        </div>
+    </body>
+</html>

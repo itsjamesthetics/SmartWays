@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartWays - Home</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 80vh;
+            background-color: #f4f4f4;
+            /* Light grey background for contrast */
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 350px;
+            width: 100%;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+    </style>
+    <script src="scripts/load.js" type="module" defer></script>
+    <script src="scripts/main.js" defer type="module"></script>
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <main class="main">
+        <!-- Main content goes here -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Find Parking</h5>
+                <p class="card-text">Find available parking in my area.</p>
+                <a href="parking.html" class="btn">Find Now!</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Check Traffic</h5>
+                <p class="card-text">Check which areas are currently experiencing heavy traffic</p>
+                <a href="traffic.html" class="btn">Find Now!</a>
+            </div>
+        </div>
+    </main>
+    <footer id="footer"></footer>
+</body>
+
+</html>

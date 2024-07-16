@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartWays - Sign Up</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="scripts/signup.js" defer type="module"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            width: 100%;
+            background: #f4f4f4;
+        }
+
+        .login-container {
+            position: relative;
+            border: 1px solid #ccc;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            padding-top: 40px;
+            text-align: center;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .login-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            width: 400px;
+            height: 160px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        #forgot-password-link {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+            text-decoration: none;
+            color: #007BFF;
+            transition: color 0.3s ease-in-out;
+        }
+
+        #forgot-password-link:hover {
+            color: #0056b3;
+        }
+
+        .login-form input,
+        .subscribe input,
+        button {
+            width: 300px;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        .login-form input:focus,
+        .subscribe input:focus {
+            border-color: #b9879f;
+            background-color: #f0f0f0;
+        }
+
+        .login-form,
+        .social-login,
+        .subscribe {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links,
+        .google-login,
+        #subscribe-button {
+            margin-top: 20px;
+            width: 200px;
+            height: 40px;
+        }
+
+        button {
+            background-color: #028a0f;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            background-color: #5dbb63;
+            transform: scale(1.05);
+        }
+
+        button span {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .social-links img,
+        .google-login img {
+            height: 24px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-links img:hover,
+        .google-login img:hover {
+            transform: scale(1.2);
+        }
+
+        .social-login p {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer {
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer-container {
+            gap: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .footer-container:hover {
+            transform: scale(1.02);
+        }
+
+        .footer-logo img {
+            height: 70px;
+            width: 160px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .footer-logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-social p {
+            margin-left: 15px;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .footer-subscribe p {
+            margin-left: 55px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .footer-social a,
+        .footer-social img {
+            margin-left: 15px;
+            align-items: center;
+            display: inline-block;
+            margin: 0 10px;
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .footer-social a:hover,
+        .footer-social img:hover {
+            transform: scale(1.2);
+        }
+
+        .footer-subscribe input[type="email"],
+        .footer-subscribe button {
+            margin-left: 70px;
+            display: block;
+        }
+
+        .footer-subscribe input[type="email"] {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        .footer-subscribe input[type="email"]:focus {
+            border-color: #b9879f;
+            background-color: #f0f0f0;
+        }
+
+        .footer-subscribe button {
+            width: 200px;
+            padding: 10px 20px;
+            background-color: #028a0f;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .footer-subscribe button:hover {
+            background-color: #5dbb63;
+            transform: scale(1.05);
+        }
+
+        /* ADDITIONAL */
+        .login-form input,
+        .subscribe input {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip.show {
+            opacity: 1;
+        }
+
+
+        button {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        button::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        button:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #b9879f;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            margin: auto;
+            display: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .login-form h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <header>
+            <img src="assets/duolingo.png" alt="Duolingo Logo" class="logo" id="logo-image">
+        </header>
+        <form class="login-form" id="signup-form">
+            <h3>Sign Up</h3>
+            <input type="text" placeholder="Username" required id="username-input">
+            <input type="email" placeholder="Email Address" required id="email-input">
+            <input type="password" placeholder="Password" required id="password-input">
+            <input type="password" placeholder="Confirm Password" required id="confirm-password-input">
+            <button type="submit" class="login-button" id="signup-button">SIGN UP</button>
+        </form>
+        <div class="social-login">
+            <p>Or sign up with</p>
+            <button class="google-login" id="googleloginbutton">
+                SIGN IN
+            </button>
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="assets/duolingo.png" alt="Duolingo Logo">
+                </div>
+                <div class="footer-social">
+                    <p>Get In Touch</p>
+                    <a href="#twitter"><img src="assets/twitter.png" alt="Twitter"> </a>
+                    <a href="#instagram"><img src="assets/instagramdark.png" alt="Instagram"></a>
+                    <a href="#facebook"><img src="assets/facebook.png" alt="Facebook"></a>
+                </div>
+                <div class="footer-subscribe">
+                    <p>Subscribe</p>
+                    <form id="subscribeForm">
+                        <input type="email" id="emailInput" placeholder="Enter email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="loading-spinner" style="display: none"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        const signInButton = document.getElementById('googleloginbutton');
+        signInButton.addEventListener('click', () => {
+            window.location.href = 'signin.html';
+        });
+    </script>
+</body>
+
+</html>

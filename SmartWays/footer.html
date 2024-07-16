@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <style>
+        /* FOOTER */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            line-height: 1.5;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1170px;
+            margin: auto;
+            padding: 0 15px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .footer {
+            background-color: #ffffff;
+            padding: 70px 0;
+            padding: 40px 0;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-col {
+            flex: 1;
+            padding: 0 15px;
+        }
+
+        .footer-col.logo-col {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .footer-col.logo-col img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            margin-left: -150px;
+            margin-top: -20px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-col.logo-col img:hover {
+            transform: scale(1.1);
+        }
+
+
+        .footer-col h4 {
+            font-size: 18px;
+            color: #000000;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+
+            transition: color 0.3s ease;
+        }
+
+        .footer-col h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: #3ebd0b;
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+            transition: width 0.3s ease;
+        }
+
+        .footer-col h4:hover::before {
+            width: 100%;
+        }
+
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 16px;
+            text-transform: capitalize;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            color: #000000;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #cbe9bf;
+            padding-left: 8px;
+        }
+
+        .footer-col .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+        }
+
+        .footer-col .social-links a:hover {
+            color: #ffffff;
+            background-color: #cbe9bf;
+        }
+
+        .footer-bottom {
+            padding: 20px 0;
+            justify-content: center;
+            margin-right: 147px;
+            text-align: center;
+            background-color: #ffffff;
+            color: #000000;
+            font-size: 16px;
+
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+
+        /* RESPONSIVENESS */
+        @media(max-width: 767px) {
+            .footer-col {
+                width: 50%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media(max-width: 574px) {
+            .footer-col {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--FOOTER-->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col logo-col">
+                    <img src="assets/smartwaysre.png" alt="Company Logo">
+                </div>
+                <div class="footer-col">
+                    <h4>Organization</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Affiliate Program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get Help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">About the Website</a></li>
+                        <li><a href="#">Scheduling</a></li>
+                        <li><a href="#">Hiring</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Candidate Hiring</a></li>
+                        <li><a href="#">Search for a Job</a></li>
+                        <li><a href="#">Interview Scheduling</a></li>
+                        <li><a href="#">Qualifications Review</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us!</h4>
+                    <div class="social-links">
+                        <a href="#"><img src="assets/facebook.png" alt="Facebook"
+                                style="width: 38px; height: 38px;"></a>
+                        <a href="#"><img src="assets/twitter.png" alt="Twitter" style="width: 38px; height: 38px;"></a>
+                        <a href="#"><img src="assets/instagram.png" alt="Instagram"
+                                style="width: 38px; height: 38px;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SmartWays, All Right Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

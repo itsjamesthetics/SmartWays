@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Contacts </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .contact-section h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            gap: 5px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            width: 20%;
+            min-width: 180px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .contact-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon {
+            align-items: center;
+            margin-left: 83px;
+            width: 120px;
+            height: 80px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            padding: 30px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        .icon img {
+            align-items: center;
+            margin-top: -15px;
+            width: 60px;
+            height: 60px;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+            background-color: #cbe9bf;
+        }
+
+        .contact-item h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: normal;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .contact-item h3:hover {
+            color: #cbe9bf;
+        }
+
+        .contact-item p {
+            margin: 5px 0;
+            color: #555;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .contact-item p:hover {
+            color: #000;
+        }
+
+        .contact-item strong {
+            font-size: 16px;
+            color: #000;
+        }
+    </style>
+    <script src="scripts/load.js" type="module" defer></script>
+</head>
+
+<body>
+    <header id="header"></header>
+
+    <main class="main">
+        <div class="contact-section">
+            <h2>GET IN TOUCH</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="icon">
+                        <img src="assets/location.png" alt="Address Icon" width="50px" height="50px">
+                    </div>
+                    <h3>ADDRESS</h3>
+                    <p>Visit us at our office</p>
+                    <p><strong>Uytengsu, Silliman University</strong></p>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">
+                        <img src="assets/phone.png" alt="Phone Icon" width="50px" height="50px">
+                    </div>
+                    <h3>PHONE</h3>
+                    <p>Customer Support is 24/7</p>
+                    <p><strong>+639123456789</strong></p>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">
+                        <img src="assets/email.png" alt="Email Icon" width="50px" height="50px">
+                    </div>
+                    <h3>EMAIL</h3>
+                    <p>We will reply in 24 hours</p>
+                    <p><strong>duolingo@corp.com</strong></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="footer"></footer>
+</body>
+
+</html>
